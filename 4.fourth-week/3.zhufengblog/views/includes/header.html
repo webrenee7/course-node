@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title><%=title%></title>
+    <link rel="stylesheet" href="/bootstrap/dist/css/bootstrap.css">
+</head>
+<body>
+<nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a href="" class="navbar-brand">珠峰博客</a>
+        </div>
+        <div>
+            <ul class="nav navbar-nav">
+                <%
+                    if(user){%>
+                        <li><a href="/article/add">发表文章</a></li>
+                        <li><a href="/user/signout">退出</a></li>
+                    <%}else{%>
+                        <li><a href="/user/signup">注册</a></li>
+                        <li><a href="/user/signin">登录</a></li>
+                    <%}
+                %>
+            </ul>
+            <form class="navbar-form navbar-left" action="/?keyword=<%=locals.keyword%>">
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Search" name="keyword" value="<%=locals.keyword%>">
+                </div>
+                <button type="submit" class="btn btn-default">Submit</button>
+            </form>
+            <%if(user){%>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#"><img src="<%=user.avatar%>" class="img-rounded" style="width:25px; height: 25px;"/></a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><%=user.username%> <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="/user/signout">退出</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            <%}%>
+        </div>
+    </div>
+</nav>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <%if(success){%>
+                <div class="alert alert-success"><%=success%></div><!--成功消息-->
+            <%}if(error){%>
+                <div class="alert alert-danger"><%=error%></div><!--失败消息-->
+            <%}%>
+

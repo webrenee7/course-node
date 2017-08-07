@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title><%=title%></title>
+    <link rel="stylesheet" href="/bootstrap.css">
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <h2>用户注册</h2>
+        <form method="post" class="form" action="/signup">
+            <div class="form-group">
+                <label class="control-label">用户名：</label>
+                <input type="text" name="username" class="form-control">
+            </div>
+            <div class="form-group">
+                <label class="control-label">密码：</label>
+                <input type="text" name="password" class="form-control">
+            </div>
+            <div class="form-group">
+                <button class="btn btn-info" type="submit">注册</button>
+            </div>
+        </form>
+    </div>
+</div>
+</body>
+</html>
